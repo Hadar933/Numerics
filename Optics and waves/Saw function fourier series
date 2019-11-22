@@ -1,0 +1,29 @@
+%%
+%constants
+const=-2/pi; 
+t=linspace(-3,3,200); 
+Sn = 0; % initial sum we iterate on
+ 
+%%
+%calculating the series and plotting
+for n = 1 : 50 
+    const=-const; % each iteration the sign changes just like (-1)^n
+    Sn=Sn+((const/n)*sin(n*pi*t)); %summing S_(n-1)+S_n
+    if n == 5 || n==10 || n==50 % we need to print in these cases only
+        plot(t,Sn,'LineWidth',1.8)
+        hold on
+    end 
+end
+ 
+%%
+%plotting the original saw function;
+y = mod(t+1,2)-1; %when ever t+1%2 is zero we will start over
+plot(t,y,'LineWidth',1.3)
+hold off
+%%
+%decoration
+grid on
+xlabel('time(sec)')
+ylabel('Sn')
+title('Saw Function - Fourier series expansion (sum of N first terms)')
+legend('N=5','N=10','N=50','Original Saw')
