@@ -1,4 +1,7 @@
 %%
+% written in MATLAB
+
+%%
 %constants
 const=-2/pi; 
 t=linspace(-3,3,200); 
